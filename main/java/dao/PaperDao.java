@@ -6,7 +6,9 @@
 package dao;
 
 import connection.ConnectionFactory;
+import java.util.List;
 import javax.persistence.EntityManager;
+import model.Item;
 import model.Paper;
 
 /**
@@ -43,6 +45,19 @@ public class PaperDao {
             System.err.println(e);
         }finally{
             em.close();
+        }
+        return paper ;
+    }
+    
+    public List<Paper> list(){
+        EntityManager em = new ConnectionFactory().getConnection();
+        List<Paper> paper = null ;
+        try {
+            paper = em.createQuery("from Paper i").getResultList();
+        }catch(Exception e){
+            System.err.println(e);
+        }finally {
+            em.close();    
         }
         return paper ;
     }

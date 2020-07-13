@@ -72,4 +72,11 @@ public class Rest {
     public int insertPaper(Paper paper){
         return pDao.save(paper);
     }
+    
+    @GET
+    @Path("/paper/listar")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<Paper> listPaper(){
+        return pDao.list();
+    }
 }

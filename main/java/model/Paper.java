@@ -35,7 +35,8 @@ public class Paper implements Serializable {
 
     @ManyToMany(mappedBy = "papers")
     private List<Item> items ;
-            
+
+             
     public int getId() {
         return id;
     }

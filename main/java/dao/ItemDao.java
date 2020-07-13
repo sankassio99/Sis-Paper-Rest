@@ -35,7 +35,7 @@ public class ItemDao {
         EntityManager em = new ConnectionFactory().getConnection();
         List<Item> itens = null ;
         try {
-            itens = em.createQuery("from Item i").getResultList();
+            itens = em.createQuery("from Item i ").getResultList();
         }catch(Exception e){
             System.err.println(e);
         }finally {
